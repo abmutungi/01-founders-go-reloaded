@@ -1,60 +1,27 @@
-/*package main
-
-import (
-	"fmt"
-	"io/ioutil"
-)
-
-func main() {
-	data, err := ioutil.ReadFile("testing.txt")
-	if err != nil {
-		fmt.Println("File reading error", err)
-		return
-	}
-	fmt.Println(string(data))
-}
-*/
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"log"
+	"strings"
 	"os"
+	"strconv"
 )
 
 func main() {
-	// readWordFromStandardInput()
-	// readLineFromStandardInput()
-	// readFromFile()
-}
+	
+	arguments := os.Args[1:]
 
-func readWordFromStandardInput() {
-	scanner := bufio.NewScanner(os.Stdin)
-	scanner.Split(bufio.ScanWords)
-	scanner.Scan()
-	fmt.Println(scanner.Text())
-}
+ 	// error handling
 
-func readLineFromStandardInput() {
-	scanner := bufio.NewScanner(os.Stdin)
-	scanner.Scan()
-	fmt.Println(scanner.Text())
-}
+	// if len(arguments) < 1 {
+    //     fmt.Println("Please give one argument.")
+	// }
 
-func readFromFile() {
-	file, err := os.Open("testing.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer file.Close()
+	// if len(arguments) > 2 {
+	// 	fmt.Println("Too many arguments")
+	// }
 
-	fileScanner := bufio.NewScanner(file)
-	for fileScanner.Scan() {
-		fmt.Println(fileScanner.Text())
-	}
+	//read input file
 
-	if err := fileScanner.Err(); err != nil {
-		log.Fatal(err)
-	}
-}
+	text,_ := os.ReadFile(arguments[0])
+
