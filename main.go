@@ -25,3 +25,12 @@ func main() {
 
 	text,_ := os.ReadFile(arguments[0])
 
+	word := strings.Split(text, " ")
+
+
+	for i, word := range word {
+		if word == "(up)"{
+		word[i-1] = strings.ToUpper(i-1)
+		}
+
+	}
