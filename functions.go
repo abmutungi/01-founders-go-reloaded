@@ -25,7 +25,6 @@ func ReadFile() string {
 func ToHex(s string) string {
 
 	output, _ := strconv.ParseInt(s, 16, 64)
-	//inString := strconv.FormatInt(output, 10)
 	return fmt.Sprint(output)
 
 }

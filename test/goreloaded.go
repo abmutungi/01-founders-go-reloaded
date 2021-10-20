@@ -16,7 +16,7 @@ func main() {
 
 		switch word {
 		case "(cap)":
-			sliceOfStr[i-1] = strings.ToTitle(sliceOfStr[i-1])
+			sliceOfStr[i-1] = strings.Title(strings.ToLower(sliceOfStr[i-1]))
 			sliceOfStr = append(sliceOfStr[:i], sliceOfStr[i+1:]...)
 		case "(low)":
 			sliceOfStr[i-1] = strings.ToLower(sliceOfStr[i-1])
