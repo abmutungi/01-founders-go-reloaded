@@ -8,9 +8,7 @@ import (
 
 func main() {
 	//Read the file and convert to slice of string
-	textfile := gr.ReadFile()
-
-	sliceOfStr := strings.Split(textfile, " ")
+	sliceOfStr := strings.Split(gr.ReadFile(), " ")
 
 	for i, word := range sliceOfStr {
 
@@ -30,8 +28,16 @@ func main() {
 		case "(bin)":
 			sliceOfStr[i-1] = gr.ToBin(sliceOfStr[i-1])
 			sliceOfStr = append(sliceOfStr[:i], sliceOfStr[i+1:]...)
+		case "a":
+			sliceOfStr[i] = gr.ChangeA(sliceOfStr[i+1])
+		case "A":
+			sliceOfStr[i] = gr.ChangeA(sliceOfStr[i+1])
+			sliceOfStr[i] = strings.Title(strings.ToLower(sliceOfStr[i]))
+		case "(cap,":
+		case "(up,":
+		case "(low,":
 
 		}
 	}
-	fmt.Println(sliceOfStr)
+	fmt.Printf("%#v", sliceOfStr)
 }

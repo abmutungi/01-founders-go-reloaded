@@ -11,6 +11,7 @@ package gr
 import (
 	"fmt"
 	"os"
+	"regexp"
 	"strconv"
 )
 
@@ -36,4 +37,13 @@ func ToBin(s string) string {
 }
 
 //func punc ()
-//change a/an
+
+func ChangeA(s string) string {
+
+	matched, _ := regexp.MatchString(`^[aeiouh]`, s)
+
+	if matched == true {
+		return "an"
+	}
+	return "a"
+}
