@@ -7,11 +7,10 @@ import (
 )
 
 func main() {
-	//Read the file and convert to slice of string
+	// Read the file and convert to slice of string
 	sliceOfStr := strings.Split(gr.ReadFile(), " ")
 
 	for i, word := range sliceOfStr {
-
 		switch word {
 		case "(cap)":
 			sliceOfStr[i-1] = strings.Title(strings.ToLower(sliceOfStr[i-1]))
@@ -34,10 +33,12 @@ func main() {
 			sliceOfStr[i] = gr.ChangeA(sliceOfStr[i+1])
 			sliceOfStr[i] = strings.Title(strings.ToLower(sliceOfStr[i]))
 		case "(cap,":
-		case "(up,":
-		case "(low,":
+			sliceOfStr[i] = gr.Atoi(sliceOfStr[i+1])
+			sliceOfStr = append(sliceOfStr[:i], sliceOfStr[i+2:]...)
+			// case "(up,":
+			// case "(low,":
 
 		}
 	}
-	fmt.Printf("%#v", sliceOfStr)
+	fmt.Println(sliceOfStr)
 }
