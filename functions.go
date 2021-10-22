@@ -46,7 +46,7 @@ func ChangeA(s string) string {
 
 //"<number>)"
 
-func TrimAtoi(s string) int {
+func Atoi(s string) int {
 	num := 0                // initalise num as 0
 	result := 1             // initialise result as 1
 	for i, val := range s { // uses for range loop to iterate over s
@@ -66,9 +66,9 @@ func TrimAtoi(s string) int {
 }
 
 func HexNumber(s []string) []string {
-	pd := 0
+	h := 0
 	var toAdd []string
 
-	for range s {
+	for i := 0; i < len(s); i++ {
 	}
 }
