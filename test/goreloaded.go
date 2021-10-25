@@ -90,17 +90,17 @@ func main() {
 		}
 	}
 
-	// count := 0
+	count := 0
 
-	// 	for i := 0; i < len(char); i++ {
-	// 		if char[i] == 39 && count%2 != 0 && char[i-1] == 32 {
-	// 			char[i], char[i-1] = char[i-1], char[i]
-	// 			count++
-	// 		}
-	//  if char[i] == 39 && count%2 = 0 && char[i+1] == 32 {
-	// 	char[i], char[i+1] = char[i+1], char[i]
-	// }
-
+	for i := 0; i < len(char); i++ {
+		if char[i] == 39 && count%2 != 0 && char[i+1] == 32 {
+			char[i], char[i+1] = char[i+1], char[i]
+			count++
+		}
+		if char[i] == 39 && count%2 == 0 && char[i-1] == 32 {
+			char[i], char[i-1] = char[i-1], char[i]
+		}
+	}
 	a := removeSpace(string(char))
 	fmt.Println(string(a))
 }
