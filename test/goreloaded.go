@@ -108,7 +108,7 @@ func main() {
 	} //remove double spaces
 	a := removeSpace(string(char))
 	//create output file with all modifications complete
-	fo, err := os.Create("output1.txt")
+	fo, err := os.Create("output.txt")
 
 	if err != nil {
 		log.Fatal(err)

@@ -1,10 +1,4 @@
-// split
-
-// if else or switch case
-// hex, bin, cap, low
-// (call upon created functions)
-
-// separate functions for punc, change a/an
+// separate functions for reading file, hex, bin, change a/an
 
 package gr
 
