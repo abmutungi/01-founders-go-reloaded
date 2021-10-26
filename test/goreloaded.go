@@ -1,8 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"gr"
+	"log"
+	"os"
 	"strings"
 )
 
@@ -79,9 +80,9 @@ func main() {
 			sliceOfStr = append(sliceOfStr[:i], sliceOfStr[i+2:]...)
 		}
 	}
-
+	//join string together with above modifications complete
 	restring := strings.Join(sliceOfStr, " ")
-
+	//split string into runes to correct punctuation
 	char := []rune(restring)
 
 	for i := 0; i < len(char); i++ {
@@ -98,15 +99,24 @@ func main() {
 			if char[i] == 39 && count%2 != 0 && char[i+1] == 32 {
 				char[i], char[i+1] = char[i+1], char[i]
 				i++
-				fmt.Println("Hello")
 			}
 			if char[i] == 39 && count%2 == 0 && char[i-1] == 32 {
 				char[i], char[i-1] = char[i-1], char[i]
 				char[i-2], char[i-1] = char[i-1], char[i-2]
-				fmt.Println("Bye")
 			}
 		}
-	}
+	} //remove double spaces
 	a := removeSpace(string(char))
-	fmt.Println(a)
+	//create output file with all modifications complete
+	fo, err := os.Create("output1.txt")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer fo.Close()
+
+	_, err2 := fo.WriteString(a)
+	if err2 != nil {
+		log.Fatal(err2)
+	}
 }

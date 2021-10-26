@@ -57,13 +57,3 @@ func Atoi(s string) int {
 	}
 	return num
 }
-
-func WriteFile() string {
-	fileOne, err := os.ReadFile(os.Args[1])
-	if err != nil {
-		fmt.Println("Invalid input")
-	}
-	return string(fileOne)
-}
-
-
