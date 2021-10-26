@@ -13,7 +13,6 @@ import (
 	"os"
 	"regexp"
 	"strconv"
-	"strings"
 )
 
 func ReadFile() string {
@@ -59,6 +58,12 @@ func Atoi(s string) int {
 	return num
 }
 
-func removeSpace(s string) string {
-	return strings.Join(strings.Fields(s), " ")
+func WriteFile() string {
+	fileOne, err := os.ReadFile(os.Args[1])
+	if err != nil {
+		fmt.Println("Invalid input")
+	}
+	return string(fileOne)
 }
+
+

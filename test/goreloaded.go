@@ -85,7 +85,7 @@ func main() {
 	char := []rune(restring)
 
 	for i := 0; i < len(char); i++ {
-		if char[i] == ',' && char[i-1] == ' ' || char[i] == '.' && char[i-1] == ' ' || char[i] == '!' && char[i-1] == ' ' || char[i] == '?' && char[i-1] == ' ' || char[i] == ':' && char[i-1] == ' ' || char[i] == ';' && char[i-1] == ' ' || char[i] == 39 && char[i-1] == 32 {
+		if char[i] == ',' && char[i-1] == ' ' || char[i] == '.' && char[i-1] == ' ' || char[i] == '!' && char[i-1] == ' ' || char[i] == '?' && char[i-1] == ' ' || char[i] == ':' && char[i-1] == ' ' || char[i] == ';' && char[i-1] == ' ' { //|| char[i] == 39 && char[i-1] == 32 {
 			char[i], char[i-1] = char[i-1], char[i]
 		}
 	}
@@ -93,15 +93,20 @@ func main() {
 	count := 0
 
 	for i := 0; i < len(char); i++ {
-		if count%2 != 0 && char[i] == 39 && char[i+1] == 32 {
-			char[i], char[i+1] = char[i+1], char[i]
+		if char[i] == 39 {
 			count++
-		}
-		if char[i] == 39 && count%2 == 0 && char[i-1] == 32 {
-			char[i], char[i-1] = char[i-1], char[i]
-			fmt.Println("Hello")
+			if char[i] == 39 && count%2 != 0 && char[i+1] == 32 {
+				char[i], char[i+1] = char[i+1], char[i]
+				i++
+				fmt.Println("Hello")
+			}
+			if char[i] == 39 && count%2 == 0 && char[i-1] == 32 {
+				char[i], char[i-1] = char[i-1], char[i]
+				char[i-2], char[i-1] = char[i-1], char[i-2]
+				fmt.Println("Bye")
+			}
 		}
 	}
 	a := removeSpace(string(char))
-	fmt.Println(string(a))
+	fmt.Println(a)
 }
